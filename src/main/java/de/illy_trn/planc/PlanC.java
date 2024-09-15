@@ -10,7 +10,7 @@ public final class PlanC extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        // Plugin startup
         getLogger().info("Plan C plugin Loaded");
         getCommand("spawn").setExecutor(new spawn());
         getCommand("kit").setExecutor(new kit());
