@@ -1,17 +1,45 @@
 package de.illy_trn.planc.items.StormArmor;
 
 import com.destroystokyo.paper.event.player.PlayerArmorChangeEvent;
+import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.HashMap;
+
 public class StormArmorEvent implements Listener {
+
+    private HashMap<Player, Integer> hitCounter = new HashMap<>();
 
     @EventHandler
     public void onEquip(PlayerArmorChangeEvent e) {
         Player player = e.getPlayer();
+
+        if(isWearingFullStormArmor(player)) {hitCounter.putIfAbsent(player, 0);} else {hitCounter.remove(player);}
+    }
+
+    @EventHandler
+    public void onDamage(EntityDamageByEntityEvent e) {
+         if (e.getDamager() instanceof Player) {
+            Player player = (Player) e.getDamager();
+
+            if (isWearingFullStormArmor(player)) {
+                int hits = hitCounter.getOrDefault(player, 0) + 1;
+                hitCounter.put(player, hits);
+
+                if (hits % 3 == 0) {
+                    Entity hitEntity = e.getEntity();
+                    
+                    Location hitLocation = ((Entity) hitEntity).getLocation();
+                    hitLocation.getWorld().strikeLightning(hitLocation);
+                }
+            }
+        }
     }
 
     private boolean isWearingFullStormArmor(Player player) {
