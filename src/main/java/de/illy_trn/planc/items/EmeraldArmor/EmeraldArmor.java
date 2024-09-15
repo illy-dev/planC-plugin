@@ -24,7 +24,7 @@ public class EmeraldArmor {
         armor.add(helmet);
 
         // Chestplate
-        List<String> itemLore_chestplate = Arrays.asList("§6Full Set Bonus:", "§7hero of the village effect", "", "§5§lEPIC CHESTPLATE");
+        List<String> itemLore_chestplate = Arrays.asList("§6Full Set Bonus:", "§7hero of the village effect, speed", "", "§5§lEPIC CHESTPLATE");
 
         ItemStack chestplate = new ItemStack(Material.NETHERITE_CHESTPLATE, 1);
         ItemMeta metaChestplate = chestplate.getItemMeta();
