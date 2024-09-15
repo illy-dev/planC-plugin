@@ -17,7 +17,7 @@ public class EmeraldArmorEvent implements Listener {
         if (isWearingFullEmeraldArmor(player)) {
             if (!player.hasPotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE) && !player.hasPotionEffect(PotionEffectType.SPEED)) {
                 player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, Integer.MAX_VALUE, 0, false, false, true));
-                player.addPotionEffect(new PotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE, Integer.MAX_VALUE, 0, false, false, true));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 0, false, false, true));
             }
         } else {
             player.removePotionEffect(PotionEffectType.HERO_OF_THE_VILLAGE);
