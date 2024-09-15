@@ -1,0 +1,12 @@
+  name: planc
+  main: de.illy_trn.planc.PlanC
+  version: 1.0
+  api-version: '1.21'
+
+  commands:
+    spawn:
+      description: Teleport to spawn
+      usage: /spawn
+    kit:
+      description: give weapons
+      usage: /kit
