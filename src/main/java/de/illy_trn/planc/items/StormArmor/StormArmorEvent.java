@@ -1,4 +1,4 @@
-package de.illy_trn.planc.items.EmeraldArmor;
+package de.illy_trn.planc.items.StormArmor;
 
 import com.destroystokyo.paper.event.player.PlayerArmorChangeEvent;
 import org.bukkit.entity.Player;
@@ -9,7 +9,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class EmeraldArmorEvent implements Listener {
+public class StormArmorEvent implements Listener {
 
     @EventHandler
     public void onEquip(PlayerArmorChangeEvent e) {
@@ -25,7 +25,6 @@ public class EmeraldArmorEvent implements Listener {
         }
     }
 
-    // Check if the player is wearing the full Emerald armor set
     private boolean isWearingFullEmeraldArmor(Player player) {
         ItemStack[] armorContents = player.getInventory().getArmorContents();
 
@@ -33,20 +32,18 @@ public class EmeraldArmorEvent implements Listener {
             return false;
         }
 
-        // Define armor piece names with their proper color codes
-        String emeraldHelmetName = "§5Emerald Helmet";
-        String emeraldChestplateName = "§5Emerald Chestplate";
-        String emeraldLeggingsName = "§5Emerald Leggings";
-        String emeraldBootsName = "§5Emerald Boots";
+        String stormHelmetName = "§6Storm Helmet";
+        String stormChestplateName = "§6Storm Chestplate";
+        String stormLeggingsName = "§6Storm Leggings";
+        String stormBootsName = "§6Storm Boots";
 
-        // Check if the player is wearing each piece of Emerald armor
-        return isEmeraldArmorPiece(armorContents[3], emeraldHelmetName) &&  // Helmet is at index 3
-               isEmeraldArmorPiece(armorContents[2], emeraldChestplateName) &&  // Chestplate is at index 2
-               isEmeraldArmorPiece(armorContents[1], emeraldLeggingsName) &&  // Leggings are at index 1
-               isEmeraldArmorPiece(armorContents[0], emeraldBootsName);  // Boots are at index 0
+        return isEmeraldArmorPiece(armorContents[3], stormHelmetName) &&
+               isEmeraldArmorPiece(armorContents[2], stormChestplateName) &&
+               isEmeraldArmorPiece(armorContents[1], stormLeggingsName) &&
+               isEmeraldArmorPiece(armorContents[0], stormBootsName);
     }
 
-    // Check if the armor piece has the expected name
+
     private boolean isEmeraldArmorPiece(ItemStack item, String expectedName) {
         if (item == null || !item.hasItemMeta()) {
             return false;
