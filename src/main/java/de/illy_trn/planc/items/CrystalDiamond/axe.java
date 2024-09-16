@@ -1,4 +1,4 @@
-package de.illy_trn.planc.items.CrystalDiamond.axe;
+package de.illy_trn.planc.items.CrystalDiamond;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

@@ -2,7 +2,7 @@ package de.illy_trn.planc;
 
 import de.illy_trn.planc.commands.kit;
 import de.illy_trn.planc.commands.spawn;
-import de.illy_trn.planc.items.CrystalDiamond.axe.axeEvent;
+import de.illy_trn.planc.items.CrystalDiamond.axeEvent;
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmorEvent;
 import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
 import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
@@ -15,14 +15,22 @@ public final class PlanC extends JavaPlugin {
     public void onEnable() {
         // Plugin startup
         getLogger().info("Plan C plugin Loaded");
+
+        // Commands
         getCommand("spawn").setExecutor(new spawn());
         getCommand("kit").setExecutor(new kit());
+
+        // Events
         getServer().getPluginManager().registerEvents(new MultishotBowEvent(), this);
         getServer().getPluginManager().registerEvents(new EmeraldArmorEvent(), this);
         getServer().getPluginManager().registerEvents(new StormArmorEvent(), this);
         getServer().getPluginManager().registerEvents(new EnderStaffEvent(), this);
         getServer().getPluginManager().registerEvents(new axeEvent(), this);
         getServer().getPluginManager().registerEvents(new spawn(), this);
+
+        // Custom crafting
+        CustomCrafting.register(this);
+
     }
 
     @Override
