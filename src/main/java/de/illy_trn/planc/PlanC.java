@@ -2,7 +2,7 @@ package de.illy_trn.planc;
 
 import de.illy_trn.planc.commands.kit;
 import de.illy_trn.planc.commands.spawn;
-import de.illy_trn.planc.items.CrystalDiamond.axe.axeEvent;
+import de.illy_trn.planc.items.CrystalDiamond.axeEvent;
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmorEvent;
 import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
 import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
