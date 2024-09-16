@@ -1,6 +1,7 @@
 package de.illy_trn.planc;
 
 import com.sun.source.tree.BreakTree;
+import de.illy_trn.planc.commands.homeSystem.home;
 import de.illy_trn.planc.commands.kit;
 import de.illy_trn.planc.commands.spawn;
 import de.illy_trn.planc.items.CrystalDiamond.axeEvent;
@@ -9,19 +10,26 @@ import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
 import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
 import de.illy_trn.planc.items.StormArmor.StormArmorEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import de.illy_trn.planc.commands.homeSystem.homeManeger;
 
 import java.io.File;
 
 public final class PlanC extends JavaPlugin {
 
     private static PlanC plugin;
+    private static homeManeger homeManeger;
 
     @Override
     public void onEnable() {
         // Plugin startup
+        plugin = this;
+        homeManeger = new homeManeger();
+        getServer().getPluginManager().registerEvents(homeManeger, this);
+
         getLogger().info("Plan C plugin Loaded");
         getCommand("spawn").setExecutor(new spawn());
         getCommand("kit").setExecutor(new kit());
+        getCommand("home").setExecutor(new home());
         getServer().getPluginManager().registerEvents(new MultishotBowEvent(), this);
         getServer().getPluginManager().registerEvents(new EmeraldArmorEvent(), this);
         getServer().getPluginManager().registerEvents(new StormArmorEvent(), this);
@@ -35,6 +43,7 @@ public final class PlanC extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+        homeManeger.onDisable();
     }
 
     public static File getPluginFolder() {
