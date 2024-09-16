@@ -7,6 +7,9 @@
     spawn:
       description: Teleport to spawn
       usage: /spawn
+    home:
+      description: Teleport to your home
+      usage: /home
     kit:
       description: give weapons
       usage: /kit

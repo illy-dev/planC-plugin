@@ -1,5 +1,6 @@
 package de.illy_trn.planc;
 
+import de.illy_trn.planc.commands.homeSystem.home;
 import de.illy_trn.planc.commands.kit;
 import de.illy_trn.planc.commands.spawn;
 import de.illy_trn.planc.items.CrystalDiamond.axe.axeEvent;
@@ -17,6 +18,7 @@ public final class PlanC extends JavaPlugin {
         getLogger().info("Plan C plugin Loaded");
         getCommand("spawn").setExecutor(new spawn());
         getCommand("kit").setExecutor(new kit());
+        getCommand("home").setExecutor(new home());
         getServer().getPluginManager().registerEvents(new MultishotBowEvent(), this);
         getServer().getPluginManager().registerEvents(new EmeraldArmorEvent(), this);
         getServer().getPluginManager().registerEvents(new StormArmorEvent(), this);
@@ -29,4 +31,6 @@ public final class PlanC extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
+
+
 }
