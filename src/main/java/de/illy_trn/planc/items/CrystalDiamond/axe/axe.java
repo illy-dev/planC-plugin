@@ -16,7 +16,7 @@ public class axe {
         //10 blöcke 8 sekunden
         List<String> itemLore_axe = Arrays.asList("§7Mine 6 WoodBlocks above the mined block ", "", "§5§lEPIC AXE");
 
-        meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Crystal Diamond Axe");
+        meta.setDisplayName(ChatColor.DARK_PURPLE + "Crystal Diamond Axe");
         meta.setLore(itemLore_axe);
 
         item.setItemMeta(meta);
