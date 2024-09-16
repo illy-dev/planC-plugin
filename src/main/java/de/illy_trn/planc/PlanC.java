@@ -2,6 +2,7 @@ package de.illy_trn.planc;
 
 import de.illy_trn.planc.commands.kit;
 import de.illy_trn.planc.commands.spawn;
+import de.illy_trn.planc.items.CrystalDiamond.axe.axeEvent;
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmorEvent;
 import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
 import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
@@ -20,6 +21,7 @@ public final class PlanC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EmeraldArmorEvent(), this);
         getServer().getPluginManager().registerEvents(new StormArmorEvent(), this);
         getServer().getPluginManager().registerEvents(new EnderStaffEvent(), this);
+        getServer().getPluginManager().registerEvents(new axeEvent(), this);
     }
 
     @Override

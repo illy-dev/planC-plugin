@@ -1,5 +1,6 @@
 package de.illy_trn.planc.commands;
 
+import de.illy_trn.planc.items.CrystalDiamond.axe.axe;
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmor;
 import de.illy_trn.planc.items.EnderStaff.EnderStaff;
 import de.illy_trn.planc.items.MultishotBow.MultishotBow;
@@ -18,6 +19,7 @@ public class kit implements CommandExecutor {
             if(player.isOp()) {
                 player.getInventory().addItem(MultishotBow.get());
                 player.getInventory().addItem(EnderStaff.get());
+                player.getInventory().addItem(axe.get());
 
                 ItemStack[] itemsEmeraldArray = new ItemStack[EmeraldArmor.get().size()];
                 EmeraldArmor.get().toArray(itemsEmeraldArray);
@@ -28,7 +30,7 @@ public class kit implements CommandExecutor {
                 player.getInventory().addItem(itemsEmeraldArray);
                 player.getInventory().addItem(itemsStormArray);
 
-            }
+            } else {commandSender.sendMessage("You don't have Permissions!");}
         } else {commandSender.sendMessage("Du bist kein Spieler");}
         return true;
     }
