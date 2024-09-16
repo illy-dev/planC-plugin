@@ -18,8 +18,8 @@ public class EnderStaffEvent implements Listener {
         Action action = e.getAction();
 
          if (action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.RIGHT_CLICK_BLOCK)) {
-             if (player.getItemInHand().getType() == Material.STICK && player.getItemInHand().lore().contains("§7Teleport §b10§7 blocks ahead of you")) {
-                 Block b = player.getTargetBlock(null, 10);
+             if (player.getItemInHand().getType() == Material.STICK) {
+                 Block b = player.getTargetBlock(null, 15);
                 Location loc = new Location(b.getWorld(), b.getX(), b.getY(), b.getZ(), player.getLocation().getYaw(), player.getLocation().getPitch());player.teleport(loc);
                 player.teleport(loc);
                 player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f,1f);
