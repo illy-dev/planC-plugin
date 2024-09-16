@@ -9,6 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.HashMap;
 
@@ -34,9 +36,12 @@ public class StormArmorEvent implements Listener {
 
                 if (hits % 3 == 0) {
                     Entity hitEntity = e.getEntity();
-                    
+
                     Location hitLocation = ((Entity) hitEntity).getLocation();
                     hitLocation.getWorld().strikeLightning(hitLocation);
+
+                    //Must be Fixed
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false, true));
                 }
             }
         }
