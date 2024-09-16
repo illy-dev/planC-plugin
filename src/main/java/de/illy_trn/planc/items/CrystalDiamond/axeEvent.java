@@ -1,4 +1,4 @@
-package de.illy_trn.planc.items.CrystalDiamond.axe;
+package de.illy_trn.planc.items.CrystalDiamond;
 
 import net.kyori.adventure.text.BlockNBTComponent;
 import net.md_5.bungee.api.chat.BaseComponent;
