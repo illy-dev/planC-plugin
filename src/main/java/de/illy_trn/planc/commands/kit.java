@@ -1,6 +1,7 @@
 package de.illy_trn.planc.commands;
 
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmor;
+import de.illy_trn.planc.items.EnderStaff.EnderStaff;
 import de.illy_trn.planc.items.MultishotBow.MultishotBow;
 import de.illy_trn.planc.items.StormArmor.StormArmor;
 import org.bukkit.command.Command;
@@ -13,10 +14,10 @@ import org.jetbrains.annotations.NotNull;
 public class kit implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String[] strings) {
-        if(commandSender instanceof Player) {
-            Player player = (Player) commandSender;
+        if(commandSender instanceof Player player) {
             if(player.isOp()) {
                 player.getInventory().addItem(MultishotBow.get());
+                player.getInventory().addItem(EnderStaff.get());
 
                 ItemStack[] itemsEmeraldArray = new ItemStack[EmeraldArmor.get().size()];
                 EmeraldArmor.get().toArray(itemsEmeraldArray);

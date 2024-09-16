@@ -39,7 +39,7 @@ public class StormArmorEvent implements Listener {
                     Location hitLocation = ((Entity) hitEntity).getLocation();
                     hitLocation.getWorld().strikeLightning(hitLocation);
 
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5, 1, false, false, true));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 60, 1, false, false, true));
                 }
             }
         }
