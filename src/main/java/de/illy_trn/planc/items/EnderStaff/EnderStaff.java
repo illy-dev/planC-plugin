@@ -12,12 +12,12 @@ import java.util.List;
 
 public class EnderStaff {
     public static ItemStack get() {
-        ItemStack item = new ItemStack(Material.NETHERITE_SHOVEL, 1);
+        ItemStack item = new ItemStack(Material.END_ROD, 1);
         ItemMeta meta = item.getItemMeta();
 
-        List<String> itemLore = Arrays.asList("§7Teleport §b3§7 blocks ahead of you", "§7Only one arrow will be consumed per shot ", "", "§6§lLEGENDARY WEAPON");
+        List<String> itemLore = Arrays.asList("§7Teleport §b3§7 blocks ahead of you", "", "§d§lMYTHIC STAFF");
 
-        meta.setDisplayName(ChatColor.GOLD + "Triple Bow");
+        meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Enderstaff");
         meta.setLore(itemLore);
 
         item.setItemMeta(meta);

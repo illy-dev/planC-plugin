@@ -27,10 +27,9 @@ public class StormArmorEvent implements Listener {
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent e) {
-         if (e.getDamager() instanceof Player) {
-            Player player = (Player) e.getDamager();
+         if (e.getDamager() instanceof Player player) {
 
-            if (isWearingFullStormArmor(player)) {
+             if (isWearingFullStormArmor(player)) {
                 int hits = hitCounter.getOrDefault(player, 0) + 1;
                 hitCounter.put(player, hits);
 
@@ -40,8 +39,7 @@ public class StormArmorEvent implements Listener {
                     Location hitLocation = ((Entity) hitEntity).getLocation();
                     hitLocation.getWorld().strikeLightning(hitLocation);
 
-                    //Must be Fixed
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1, false, false, true));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 5, 1, false, false, true));
                 }
             }
         }
