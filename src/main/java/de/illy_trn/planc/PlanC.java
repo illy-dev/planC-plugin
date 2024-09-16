@@ -1,5 +1,6 @@
 package de.illy_trn.planc;
 
+import com.sun.source.tree.BreakTree;
 import de.illy_trn.planc.commands.kit;
 import de.illy_trn.planc.commands.spawn;
 import de.illy_trn.planc.items.CrystalDiamond.axeEvent;
@@ -9,7 +10,11 @@ import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
 import de.illy_trn.planc.items.StormArmor.StormArmorEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.File;
+
 public final class PlanC extends JavaPlugin {
+
+    private static PlanC plugin;
 
     @Override
     public void onEnable() {
@@ -30,5 +35,9 @@ public final class PlanC extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static File getPluginFolder() {
+        return  plugin.getDataFolder();
     }
 }
