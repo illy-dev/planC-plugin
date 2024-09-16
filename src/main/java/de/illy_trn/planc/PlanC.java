@@ -23,6 +23,8 @@ public final class PlanC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EnderStaffEvent(), this);
         getServer().getPluginManager().registerEvents(new axeEvent(), this);
         getServer().getPluginManager().registerEvents(new spawn(), this);
+
+        CustomCrafting.register(this);
     }
 
     @Override
