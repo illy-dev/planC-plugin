@@ -12,11 +12,12 @@ import java.util.List;
 
 public class EnderStaff {
     public static ItemStack get() {
-        ItemStack item = new ItemStack(Material.STICK, 1);
+        ItemStack item = new ItemStack(Material.WOODEN_SWORD, 1);
         ItemMeta meta = item.getItemMeta();
-        //10 blöcke 8 sekunden
-        List<String> itemLore = Arrays.asList("§7Teleport §b10§7 blocks ahead of you", "§8Cooldown: §a8s", "", "§d§lMYTHIC STAFF");
+        //10 blöcke 8 sekunden Cooldown
+        List<String> itemLore = Arrays.asList("§7Teleport §b15§7 blocks ahead of you", "§8Cooldown: §a8s", "", "§d§lMYTHIC STAFF");
 
+        meta.isUnbreakable();
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Enderstaff");
         meta.setLore(itemLore);
 
