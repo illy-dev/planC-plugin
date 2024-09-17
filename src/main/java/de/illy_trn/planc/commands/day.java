@@ -22,6 +22,6 @@ public class day implements CommandExecutor {
 
             }
         }
-        return true;
+        return false;
     }
 }
