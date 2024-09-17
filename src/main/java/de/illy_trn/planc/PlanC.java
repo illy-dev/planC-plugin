@@ -1,6 +1,7 @@
 package de.illy_trn.planc;
 
 import com.sun.source.tree.BreakTree;
+import de.illy_trn.planc.commands.day;
 import de.illy_trn.planc.commands.homeSystem.home;
 import de.illy_trn.planc.commands.homeSystem.tabcompleters;
 import de.illy_trn.planc.commands.kit;
@@ -37,6 +38,7 @@ public final class PlanC extends JavaPlugin {
 
         // commands
         getCommand("spawn").setExecutor(new spawn());
+        getCommand("day").setExecutor(new day());
         getCommand("kit").setExecutor(new kit());
         getCommand("home").setExecutor(new home());
         getCommand("home").setTabCompleter(new tabcompleters());

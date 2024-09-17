@@ -13,3 +13,6 @@
     kit:
       description: give weapons
       usage: /kit
+    day:
+      description: Set the world time to day
+      usage: /day
