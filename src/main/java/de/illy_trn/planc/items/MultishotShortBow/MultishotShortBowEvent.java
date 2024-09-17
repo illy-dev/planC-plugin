@@ -1,4 +1,4 @@
-package de.illy_trn.planc.items.Shortbow;
+package de.illy_trn.planc.items.MultishotShortBow;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -14,7 +14,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class ShortbowEvent implements Listener {
+public class MultishotShortBowEvent implements Listener {
 
     @EventHandler
     public void onPlayerClicks(PlayerInteractEvent e) {
@@ -23,7 +23,7 @@ public class ShortbowEvent implements Listener {
 
         if (action.equals(Action.RIGHT_CLICK_AIR) || action.equals(Action.LEFT_CLICK_AIR)) {
             if (player.getItemInHand().getType() == Material.BOW
-                && player.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.DARK_PURPLE + "Short bow")) {
+                && player.getItemInHand().getItemMeta().getDisplayName().equals(ChatColor.DARK_PURPLE + "multishotshort bow")) {
 
 
                 if (player.getCooldown(Material.BOW) == 0 && player.getInventory().containsAtLeast(ItemStack.of(Material.ARROW), 1)) {
@@ -45,4 +45,3 @@ public class ShortbowEvent implements Listener {
         }
     }
 }
-
