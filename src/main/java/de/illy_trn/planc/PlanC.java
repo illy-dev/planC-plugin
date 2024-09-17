@@ -22,13 +22,14 @@ import de.illy_trn.planc.commands.homeSystem.homeManeger;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.UUID;
 
 public final class PlanC extends JavaPlugin {
 
     private static PlanC plugin;
     private static homeManeger homeManeger;
 
-    public static HashMap<Player, Player> tpa = new HashMap<>();
+    public final HashMap<UUID, UUID> teleportRequests = new HashMap<>();
 
     private static FileConfiguration configuration;
 
