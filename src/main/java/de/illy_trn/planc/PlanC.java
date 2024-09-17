@@ -1,6 +1,7 @@
 package de.illy_trn.planc;
 
-import com.sun.source.tree.BreakTree;
+import de.illy_trn.planc.commands.backpack.BackpackCommand;
+import de.illy_trn.planc.commands.backpack.BackpackManager;
 import de.illy_trn.planc.commands.day;
 import de.illy_trn.planc.commands.homeSystem.home;
 import de.illy_trn.planc.commands.homeSystem.tabcompleters;
@@ -15,6 +16,7 @@ import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
 import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
 import de.illy_trn.planc.items.Shortbow.ShortbowEvent;
 import de.illy_trn.planc.items.StormArmor.StormArmorEvent;
+import de.illy_trn.planc.utils.Config;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -24,6 +26,9 @@ import java.io.File;
 import java.util.HashMap;
 
 public final class PlanC extends JavaPlugin {
+    private Config config;
+    private static PlanC instance;
+    private BackpackManager backpackManager;
 
     private static PlanC plugin;
     private static homeManeger homeManeger;
@@ -33,6 +38,11 @@ public final class PlanC extends JavaPlugin {
     private static FileConfiguration configuration;
 
     @Override
+    public void onLoad() {
+        instance = this;
+        config = new Config();
+    }
+    @Override
     public void onEnable() {
         // Plugin startup
         plugin = this;
@@ -40,6 +50,7 @@ public final class PlanC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(homeManeger, this);
         saveDefaultConfig();
         configuration = getConfig();
+        backpackManager = new BackpackManager();
 
         getLogger().info("Plan C plugin Loaded");
 
@@ -52,6 +63,7 @@ public final class PlanC extends JavaPlugin {
         getCommand("tpadecline").setExecutor(new tpaDecline());
         getCommand("home").setExecutor(new home());
         getCommand("home").setTabCompleter(new tabcompleters());
+        getCommand("backpack").setExecutor(new BackpackCommand());
 
         // events
         getServer().getPluginManager().registerEvents(new MultishotBowEvent(), this);
@@ -71,7 +83,12 @@ public final class PlanC extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
         homeManeger.onDisable();
+        backpackManager.save();
+        config.save();
     }
+
+    public Config getConfiguration1() { return config; }
+    public static PlanC getInstance() { return instance; }
 
     public static File getPluginFolder() {
         return  plugin.getDataFolder();
@@ -79,5 +96,9 @@ public final class PlanC extends JavaPlugin {
 
     public static FileConfiguration getConfiguration() {
         return configuration;
+    }
+
+    public BackpackManager getBackpackManager() {
+        return backpackManager;
     }
 }
