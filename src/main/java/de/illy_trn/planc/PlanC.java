@@ -9,6 +9,7 @@ import de.illy_trn.planc.items.CrystalDiamond.axeEvent;
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmorEvent;
 import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
 import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
+import de.illy_trn.planc.items.Shortbow.ShortbowEvent;
 import de.illy_trn.planc.items.StormArmor.StormArmorEvent;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,10 +34,14 @@ public final class PlanC extends JavaPlugin {
         configuration = getConfig();
 
         getLogger().info("Plan C plugin Loaded");
+
+        // commands
         getCommand("spawn").setExecutor(new spawn());
         getCommand("kit").setExecutor(new kit());
         getCommand("home").setExecutor(new home());
         getCommand("home").setTabCompleter(new tabcompleters());
+
+        // events
         getServer().getPluginManager().registerEvents(new MultishotBowEvent(), this);
         getServer().getPluginManager().registerEvents(new EmeraldArmorEvent(), this);
         getServer().getPluginManager().registerEvents(new StormArmorEvent(), this);
@@ -44,7 +49,9 @@ public final class PlanC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new axeEvent(), this);
         getServer().getPluginManager().registerEvents(new spawn(), this);
         getServer().getPluginManager().registerEvents(new home(), this);
+        getServer().getPluginManager().registerEvents(new ShortbowEvent(), this);
 
+        // custom crafting
         CustomCrafting.register(this);
     }
 

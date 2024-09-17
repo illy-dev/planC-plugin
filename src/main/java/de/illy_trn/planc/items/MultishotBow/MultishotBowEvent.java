@@ -27,9 +27,9 @@ public class MultishotBowEvent implements Listener {
         }
 
 
-        e.getEntity().getWorld().spawnArrow(e.getEntity().getLocation().clone().add(0,1.5,0), rotateVector(e.getProjectile().getVelocity(), 0.1), e.getForce() * 1, 0f);
+        e.getEntity().getWorld().spawnArrow(e.getEntity().getLocation().clone().add(0,1.5,0), rotateVector(e.getProjectile().getVelocity(), 0.1), e.getForce() * 1, 0f).setDamage(5);
 
-        e.getEntity().getWorld().spawnArrow(e.getEntity().getLocation().clone().add(0,1.5,0), rotateVector(e.getProjectile().getVelocity(), -0.1), e.getForce() * 1,0f);
+        e.getEntity().getWorld().spawnArrow(e.getEntity().getLocation().clone().add(0,1.5,0), rotateVector(e.getProjectile().getVelocity(), -0.1), e.getForce() * 1,0f).setDamage(5);
 
 
 

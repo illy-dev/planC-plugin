@@ -4,6 +4,7 @@ import de.illy_trn.planc.items.CrystalDiamond.axe;
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmor;
 import de.illy_trn.planc.items.EnderStaff.EnderStaff;
 import de.illy_trn.planc.items.MultishotBow.MultishotBow;
+import de.illy_trn.planc.items.Shortbow.Shortbow;
 import de.illy_trn.planc.items.StormArmor.StormArmor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,6 +21,7 @@ public class kit implements CommandExecutor {
                 player.getInventory().addItem(MultishotBow.get());
                 player.getInventory().addItem(EnderStaff.get());
                 player.getInventory().addItem(axe.get());
+                player.getInventory().addItem(Shortbow.get());
 
                 ItemStack[] itemsEmeraldArray = new ItemStack[EmeraldArmor.get().size()];
                 EmeraldArmor.get().toArray(itemsEmeraldArray);
