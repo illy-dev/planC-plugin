@@ -15,7 +15,7 @@ public class Shortbow {
         ItemStack item = new ItemStack(Material.BOW, 1);
         ItemMeta meta = item.getItemMeta();
 
-        List<String> itemLore = Arrays.asList("§7Shoots arrows instantly", "§8Cooldown: §a1s", "", "§5§lEPIC WEAPON");
+        List<String> itemLore = Arrays.asList("§7Shoots arrows instantly", "§8Cooldown: §a0.5s", "", "§5§lEPIC WEAPON");
 
         meta.setDisplayName(ChatColor.DARK_PURPLE + "Short bow");
         meta.setLore(itemLore);
