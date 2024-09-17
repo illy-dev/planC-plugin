@@ -13,15 +13,19 @@ import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
 import de.illy_trn.planc.items.Shortbow.ShortbowEvent;
 import de.illy_trn.planc.items.StormArmor.StormArmorEvent;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import de.illy_trn.planc.commands.homeSystem.homeManeger;
 
 import java.io.File;
+import java.util.HashMap;
 
 public final class PlanC extends JavaPlugin {
 
     private static PlanC plugin;
     private static homeManeger homeManeger;
+
+    public static HashMap<Player, Player> tpa = new HashMap<>();
 
     private static FileConfiguration configuration;
 
