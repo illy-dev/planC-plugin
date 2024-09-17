@@ -20,3 +20,5 @@
       usage: /tpa
     tpaccept:
       usage: /tpaccept
+    tpdecline:
+      usage: /tpadecline
