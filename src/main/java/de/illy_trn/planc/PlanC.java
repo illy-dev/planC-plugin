@@ -49,7 +49,6 @@ public final class PlanC extends JavaPlugin {
         getCommand("kit").setExecutor(new kit());
         getCommand("tpa").setExecutor(new tpaCommand());
         getCommand("tpaccept").setExecutor(new tpacceptCommand());
-        getCommand("tpadeclinet").setExecutor(new tpaDecline());
         getCommand("home").setExecutor(new home());
         getCommand("home").setTabCompleter(new tabcompleters());
 
