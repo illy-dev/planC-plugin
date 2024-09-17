@@ -17,6 +17,5 @@
       description: Set the world time to day
       usage: /day
     tpa:
-      usage: /tpa
     tpaccept:
-      usage: /tpaccept
+    tpadecline:

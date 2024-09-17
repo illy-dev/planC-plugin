@@ -12,7 +12,10 @@ public class tpaDecline implements CommandExecutor {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if (sender instanceof Player){
             Player player = (Player) sender;
-            PlanC.tpa.clear();
+            PlanC.tpa.remove(player);
+            player.sendMessage("§9[TPA] " + "§7|" +  " Du hast die Tpa Anfrage abgelehnt.");
+            Player p2 = PlanC.tpa.get(player);
+            p2.sendMessage("§9[TPA] " + "§7|" +  " Deine Anfrage wurde abgelehnt!.");
             return true;
 
         }
