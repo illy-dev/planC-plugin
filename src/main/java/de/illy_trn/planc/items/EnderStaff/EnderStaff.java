@@ -17,7 +17,7 @@ public class EnderStaff {
         //10 blöcke 8 sekunden Cooldown
         List<String> itemLore = Arrays.asList("§7Teleport §b15§7 blocks ahead of you", "§8Cooldown: §a8s", "", "§d§lMYTHIC STAFF");
 
-        meta.isUnbreakable();
+        meta.setUnbreakable(true);
         meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Enderstaff");
         meta.setLore(itemLore);
 
