@@ -14,7 +14,7 @@ public class StormArmor {
 
 
         // Helmet
-        List<String> itemLore_helmet = Arrays.asList("§6Full Set Bonus:",  "§7Strikes every 3 hits an enemy with lightning", "", "§6§lLEGENDARY HELMET");
+        List<String> itemLore_helmet = Arrays.asList("§6Full Set Bonus:",  "§7Strikes every 3 hits an enemy with lightning, speed", "", "§6§lLEGENDARY HELMET");
 
         ItemStack helmet = new ItemStack(Material.NETHERITE_HELMET, 1);
         ItemMeta metaHelmet = helmet.getItemMeta();
@@ -24,7 +24,7 @@ public class StormArmor {
         armor.add(helmet);
 
         // Chestplate
-        List<String> itemLore_chestplate = Arrays.asList("§6Full Set Bonus:", "§7Strikes every 3 hits an enemy with lightning", "", "§6§lLEGENDARY CHESTPLATE");
+        List<String> itemLore_chestplate = Arrays.asList("§6Full Set Bonus:", "§7Strikes every 3 hits an enemy with lightning, speed", "", "§6§lLEGENDARY CHESTPLATE");
 
         ItemStack chestplate = new ItemStack(Material.NETHERITE_CHESTPLATE, 1);
         ItemMeta metaChestplate = chestplate.getItemMeta();
@@ -34,7 +34,7 @@ public class StormArmor {
         armor.add(chestplate);
 
         // Leggings
-        List<String> itemLore_leggings = Arrays.asList("§6Full Set Bonus:", "§7Strikes every 3 hits an enemy with lightning", "", "§6§lLEGENDARY LEGGINGS");
+        List<String> itemLore_leggings = Arrays.asList("§6Full Set Bonus:", "§7Strikes every 3 hits an enemy with lightning, speed", "", "§6§lLEGENDARY LEGGINGS");
 
         ItemStack leggings = new ItemStack(Material.NETHERITE_LEGGINGS, 1);
         ItemMeta metaLeggings = leggings.getItemMeta();
@@ -44,7 +44,7 @@ public class StormArmor {
         armor.add(leggings);
 
         // Boots
-        List<String> itemLore_boots = Arrays.asList("§6Full Set Bonus:", "§7Strikes every 3 hits an enemy with lightning", "", "§6§lLEGENDARY BOOTS");
+        List<String> itemLore_boots = Arrays.asList("§6Full Set Bonus:", "§7Strikes every 3 hits an enemy with lightning, speed", "", "§6§lLEGENDARY BOOTS");
 
         ItemStack boots = new ItemStack(Material.NETHERITE_BOOTS, 1);
         ItemMeta metaBoots = boots.getItemMeta();
