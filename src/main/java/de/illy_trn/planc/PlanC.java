@@ -6,6 +6,8 @@ import de.illy_trn.planc.commands.homeSystem.home;
 import de.illy_trn.planc.commands.homeSystem.tabcompleters;
 import de.illy_trn.planc.commands.kit;
 import de.illy_trn.planc.commands.spawn;
+import de.illy_trn.planc.commands.tpaSystem.tpaCommand;
+import de.illy_trn.planc.commands.tpaSystem.tpacceptCommand;
 import de.illy_trn.planc.items.CrystalDiamond.axeEvent;
 import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmorEvent;
 import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
@@ -44,6 +46,8 @@ public final class PlanC extends JavaPlugin {
         getCommand("spawn").setExecutor(new spawn());
         getCommand("day").setExecutor(new day());
         getCommand("kit").setExecutor(new kit());
+        getCommand("tpa").setExecutor(new tpaCommand());
+        getCommand("tpaccept").setExecutor(new tpacceptCommand());
         getCommand("home").setExecutor(new home());
         getCommand("home").setTabCompleter(new tabcompleters());
 
