@@ -15,6 +15,7 @@ import de.illy_trn.planc.items.EmeraldArmor.EmeraldArmorEvent;
 import de.illy_trn.planc.items.EnderStaff.EnderStaffEvent;
 import de.illy_trn.planc.items.MultishotBow.MultishotBowEvent;
 import de.illy_trn.planc.items.Shortbow.ShortbowEvent;
+import de.illy_trn.planc.items.SlimeBoots.SlimeBootsEvent;
 import de.illy_trn.planc.items.StormArmor.StormArmorEvent;
 import de.illy_trn.planc.utils.Config;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -63,7 +64,6 @@ public final class PlanC extends JavaPlugin {
         getCommand("tpadecline").setExecutor(new tpaDecline());
         getCommand("home").setExecutor(new home());
         getCommand("home").setTabCompleter(new tabcompleters());
-        getCommand("backpack").setExecutor(new BackpackCommand());
 
         // events
         getServer().getPluginManager().registerEvents(new MultishotBowEvent(), this);
@@ -74,6 +74,8 @@ public final class PlanC extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new spawn(), this);
         getServer().getPluginManager().registerEvents(new home(), this);
         getServer().getPluginManager().registerEvents(new ShortbowEvent(), this);
+        getServer().getPluginManager().registerEvents(new SlimeBootsEvent(), this);
+
 
         // custom crafting
         CustomCrafting.register(this);
