@@ -18,6 +18,7 @@ import java.util.HashMap;
 public class spawn implements CommandExecutor, Listener {
     private final HashMap<String, Long> cooldowns = new HashMap<>();
     private final HashMap<String, Long> combatLog = new HashMap<>();
+    private final int combatLogTime = 15; // Dauer des Kampfes in Sekunden
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
@@ -26,11 +27,11 @@ public class spawn implements CommandExecutor, Listener {
             return true;
         }
 
-        if (combatLog.containsKey(player.getName())) {
-            long secondsSinceCombat = (System.currentTimeMillis() / 1000) - (combatLog.get(player.getName()) / 1000);
-            int combatLogTime = 10;
-            if (secondsSinceCombat < combatLogTime) {
-                player.sendMessage("§c§lYou cannot teleport while in combat! Wait " + (combatLogTime - secondsSinceCombat) + " seconds.");
+        // Überprüfen, ob der Spieler sich im Kampf befindet
+        if (isInCombat(player)) {
+            long secondsLeft = combatLogTime - ((System.currentTimeMillis() / 1000) - (combatLog.get(player.getName()) / 1000));
+            if (secondsLeft > 0) {
+                player.sendMessage("§c§lYou cannot teleport while in combat! Wait " + secondsLeft + " seconds.");
                 return true;
             }
         }
@@ -55,15 +56,36 @@ public class spawn implements CommandExecutor, Listener {
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         if (event.getEntity() instanceof Player damaged) {
-            combatLog.put(damaged.getName(), System.currentTimeMillis());
+            updateCombatLog(damaged);
+            Bukkit.getLogger().info(damaged.getName() + " was damaged!");
         }
         if (event.getDamager() instanceof Player damager) {
-            combatLog.put(damager.getName(), System.currentTimeMillis());
+            updateCombatLog(damager);
+            Bukkit.getLogger().info(damager.getName() + " dealt damage!");
         }
+    }
+
+    private void updateCombatLog(Player player) {
+        combatLog.put(player.getName(), System.currentTimeMillis());
+        player.sendMessage("§c§lYou are now in combat for " + combatLogTime + " seconds!");
+    }
+
+    private boolean isInCombat(Player player) {
+        if (!combatLog.containsKey(player.getName())) {
+            return false;
+        }
+        long secondsSinceLastCombat = (System.currentTimeMillis() / 1000) - (combatLog.get(player.getName()) / 1000);
+        return secondsSinceLastCombat < combatLogTime;
     }
 
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event) {
-        combatLog.remove(event.getPlayer().getName());
+        Player player = event.getPlayer();
+        if (isInCombat(player)) {
+            // Hier kannst du Maßnahmen ergreifen, wenn ein Spieler im Kampf ausloggt (z.B. Bestrafung)
+            Bukkit.broadcastMessage("§c§l" + player.getName() + " logged out during combat!");
+            // Optional: Schaden hinzufügen oder eine Strafe festlegen
+        }
+        combatLog.remove(player.getName()); // Entferne den Spieler aus dem Combat-Log
     }
 }
